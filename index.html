@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tour de Cicle Indoor · Etapa FTP 20</title>
+<meta name="description" content="Resultados da etapa FTP 20 minutos do Tour de Cicle Indoor, patrocinada por Track & Field.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Grid de fundo -->
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="brand-logo" viewBox="0 0 100 60" aria-hidden="true">
+        <circle cx="78" cy="18" r="14" fill="#F2E300"/>
+        <text x="0" y="34" font-family="Bebas Neue, sans-serif" font-size="28" fill="#0A0A0A" font-weight="700">TOUR</text>
+        <text x="62" y="22" font-family="Bebas Neue, sans-serif" font-size="11" fill="#0A0A0A">DE</text>
+        <text x="0" y="56" font-family="Bebas Neue, sans-serif" font-size="28" fill="#0A0A0A" font-weight="700">CICLE</text>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-event">INDOOR · ETAPA FTP 20'</span>
+        <span class="brand-sponsor">PATROCÍNIO <strong>TRACK &amp; FIELD</strong></span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="pill">78 ATLETAS</span>
+      <span class="pill">6 CATEGORIAS</span>
+      <span class="pill">4 ACADEMIAS</span>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Step 1 — vídeo obrigatório -->
+  <section class="stage" id="stage-video">
+    <div class="stage-tag">ETAPA 01</div>
+    <h1 class="stage-title">
+      Assista o vídeo<br>
+      <span class="accent">para liberar a consulta.</span>
+    </h1>
+    <p class="stage-sub">A caixa de busca abre depois que você inicia o vídeo da etapa.</p>
+
+    <div class="video-card">
+      <div id="video-frame" class="video-frame">
+        <button class="video-play" id="btn-play-video" aria-label="Reproduzir vídeo">
+          <svg viewBox="0 0 80 80" width="80" height="80" aria-hidden="true">
+            <circle cx="40" cy="40" r="38" fill="#F2E300" stroke="#0A0A0A" stroke-width="3"/>
+            <polygon points="32,24 32,56 58,40" fill="#0A0A0A"/>
+          </svg>
+          <span class="video-play-label">REPRODUZIR</span>
+        </button>
+        <img class="video-thumb" src="https://img.youtube.com/vi/6Rz1mrWwvO0/maxresdefault.jpg" alt="Capa do vídeo da etapa" onerror="this.src='https://img.youtube.com/vi/6Rz1mrWwvO0/hqdefault.jpg'">
+      </div>
+    </div>
+
+    <div class="unlock-row" id="unlock-row" hidden>
+      <div class="unlock-msg">Vídeo iniciado. Você pode liberar a consulta agora.</div>
+      <button class="btn-unlock" id="btn-unlock">
+        INICIAR CONSULTA
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Step 2 — chat -->
+  <section class="stage" id="stage-chat" hidden>
+    <div class="stage-tag">ETAPA 02</div>
+
+    <div class="mascot-intro">
+      <div class="mascot-portrait">
+        <img src="mascote-hero.jpg" alt="Cicle, o mascote do Tour de Cicle Indoor">
+        <div class="mascot-badge">CICLE</div>
+      </div>
+      <div class="mascot-bubble">
+        <h2 class="stage-title">
+          Oi, eu sou o <span class="accent">Cicle!</span>
+        </h2>
+        <p class="stage-sub">
+          Sou o mascote oficial do Tour de Cicle Indoor e vou te ajudar a consultar tudo sobre os 78 atletas da etapa FTP 20'. Pergunte por nome, academia, categoria, peso, FTP ou FTPr. Comece por uma das sugestões abaixo.
+        </p>
+      </div>
+    </div>
+
+    <div class="chips" id="suggestion-chips">
+      <button class="chip" data-q="Quem teve o maior FTP da Elite Masculino?">Maior FTP Elite Masculino</button>
+      <button class="chip" data-q="Liste os atletas da BT NS">Atletas da BT NS</button>
+      <button class="chip" data-q="Qual o ranking de FTPr da PRO Feminino?">Ranking FTPr PRO Feminino</button>
+      <button class="chip" data-q="Quantos atletas tem cada academia?">Atletas por academia</button>
+      <button class="chip" data-q="Qual o peso médio da categoria SUB-26?">Peso médio SUB-26</button>
+    </div>
+
+    <div class="chat-card">
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <form class="chat-form" id="chat-form" autocomplete="off">
+        <input class="chat-input" id="chat-input" type="text" placeholder="Ex: dados da Simone Ribeiro" required>
+        <button class="chat-send" type="submit" aria-label="Enviar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>TOUR DE CICLE INDOOR · ETAPA FTP 20 MINUTOS</span>
+    <span class="footer-sponsor">POWERED BY <strong>TRACK &amp; FIELD</strong></span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
