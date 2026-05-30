@@ -99,7 +99,7 @@
     return '<span class="pos pos-'+(p===1?'1':'0')+'">'+p+'</span>';
   }
 
-  const AVISO = '<br><br><small>⚠️ <em>Pontos parciais — Contrarrelógio 10k ainda não lançado.</em></small>';
+  const AVISO = '<br><br><small>⚠️ <em>Pontos parciais — dados incompletos. Notou algo errado? <a href="https://wa.me/5531998207556" target="_blank" style="color:#25D366;font-weight:700">WhatsApp (31) 99820-7556</a></em></small>';
 
   // ── Detecção de entidades ────────────────────────────────────
 

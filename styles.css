@@ -586,3 +586,46 @@ body {
   .msg-avatar { width: 36px; height: 36px; }
   .footer-inner { padding: 16px 20px; font-size: 9.5px; }
 }
+
+/* AVISO DE PONTOS */
+.aviso-pontos {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #FFFBEA;
+  border: 2px solid #F2E300;
+  border-left: 6px solid #E5A000;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  max-width: 880px;
+}
+.aviso-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.aviso-texto {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.aviso-texto strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+.aviso-link {
+  display: inline-block;
+  margin-top: 8px;
+  background: #25D366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.aviso-link:hover { opacity: 0.88; }
