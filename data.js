@@ -1,5 +1,5 @@
-// Tour de Cicle Indoor - Dataset v3
-// FTP Final: 00:00:00 é válido (tempo zero = 1º lugar)
+// Tour de Cicle Indoor - Dataset v4
+// Pontos de equipe: fonte oficial PDF 'Pontuação Consolidada'
 
 const PONTOS_RANKING = [25,20,17,15,13,11,9,7,5,3,1];
 
@@ -3084,864 +3084,190 @@ const ATLETAS = [
   }
 ];
 
-const PONTOS_EQUIPE_CAT = {
+const PONTOS_EQUIPE_OFICIAL = {
   "ELITE FEMININO": {
-    "FTP Final": {
-      "BT NS": {
-        "soma_s": 25,
-        "soma_str": "00:00:25",
-        "atletas": [
-          "Simone Ribeiro",
-          "Alini Brito",
-          "Joyce Ribeiro"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT TIROL": {
-        "soma_s": 39,
-        "soma_str": "00:00:39",
-        "atletas": [
-          "Andréia Medeiros",
-          "Jannaina Queiroz",
-          "Renata Seixas"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 34,
-        "soma_str": "00:00:34",
-        "atletas": [
-          "Sarah Brito",
-          "Silvia Drummond",
-          "Oona Lopes"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "PULSE": {
-        "soma_s": 46,
-        "soma_str": "00:00:46",
-        "atletas": [
-          "Hívila Moreira",
-          "Karine Symonir",
-          "Gisele"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "BT NS": {
+      "ld30k": 25,
+      "ftp": 25,
+      "montanha": 25,
+      "total": 75
     },
-    "Montanha": {
-      "PULSE": {
-        "soma_s": 4901,
-        "soma_str": "01:21:41",
-        "atletas": [
-          "Cris Diniz",
-          "Hívila Moreira",
-          "Karine Symonir"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 5000,
-        "soma_str": "01:23:20",
-        "atletas": [
-          "Sarah Brito",
-          "Silvia Drummond",
-          "Lydia Tinôco"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "BT TIROL": {
-        "soma_s": 4801,
-        "soma_str": "01:20:01",
-        "atletas": [
-          "Andréia Medeiros",
-          "Renata Seixas",
-          "Raissa Georgia"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT NS": {
-        "soma_s": 4775,
-        "soma_str": "01:19:35",
-        "atletas": [
-          "Alini Brito",
-          "Simone Ribeiro",
-          "Joyce Ribeiro"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      }
+    "BT TIROL": {
+      "ld30k": 20,
+      "ftp": 17,
+      "montanha": 20,
+      "total": 57
     },
-    "Longa Distância 30k": {
-      "PULSE": {
-        "soma_s": 9109,
-        "soma_str": "02:31:49",
-        "atletas": [
-          "Cris Diniz",
-          "Karine Symonir",
-          "Hívila Moreira"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 9134,
-        "soma_str": "02:32:14",
-        "atletas": [
-          "Silvia Drummond",
-          "Sarah Brito",
-          "Lydia Tinôco"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "BT TIROL": {
-        "soma_s": 8922,
-        "soma_str": "02:28:42",
-        "atletas": [
-          "Andréia Medeiros",
-          "Renata Seixas",
-          "Raissa Georgia"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT NS": {
-        "soma_s": 8677,
-        "soma_str": "02:24:37",
-        "atletas": [
-          "Joyce Ribeiro",
-          "Simone Ribeiro",
-          "Alini Brito"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      }
+    "AABB": {
+      "ld30k": 15,
+      "ftp": 20,
+      "montanha": 15,
+      "total": 50
+    },
+    "PULSE": {
+      "ld30k": 17,
+      "ftp": 15,
+      "montanha": 17,
+      "total": 49
     }
   },
   "ELITE MASCULINO": {
-    "FTP Final": {
-      "BT NS": {
-        "soma_s": 26,
-        "soma_str": "00:00:26",
-        "atletas": [
-          "Neto Xavier",
-          "Omar Dantas",
-          "Gringo"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT TIROL": {
-        "soma_s": 37,
-        "soma_str": "00:00:37",
-        "atletas": [
-          "Sergio Torralba",
-          "Fabrício Barros",
-          "EDUARDO"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "PULSE": {
-        "soma_s": 24,
-        "soma_str": "00:00:24",
-        "atletas": [
-          "Diogo Almeida",
-          "Elionai",
-          "Lucas Leonardo"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "AABB": {
-        "soma_s": 33,
-        "soma_str": "00:00:33",
-        "atletas": [
-          "Bira Carratu",
-          "Renato Araújo",
-          "Genival Ferreira"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "PULSE": {
+      "ld30k": 20,
+      "ftp": 25,
+      "montanha": 20,
+      "total": 65
     },
-    "Montanha": {
-      "BT NS": {
-        "soma_s": 4297,
-        "soma_str": "01:11:37",
-        "atletas": [
-          "Omar Dantas",
-          "Neto Xavier",
-          "Gringo"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "PULSE": {
-        "soma_s": 4299,
-        "soma_str": "01:11:39",
-        "atletas": [
-          "Lucas Leonardo",
-          "Diogo Almeida",
-          "Rafael Povoas"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 4186,
-        "soma_str": "01:09:46",
-        "atletas": [
-          "Sivonaldo Tercio",
-          "Genival Ferreira",
-          "Bira Carratu"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT TIROL": {
-        "soma_s": 4319,
-        "soma_str": "01:11:59",
-        "atletas": [
-          "Sergio Torralba",
-          "Danilo Vale",
-          "Fabrício Barros"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "BT NS": {
+      "ld30k": 25,
+      "ftp": 20,
+      "montanha": 15,
+      "total": 60
     },
-    "Longa Distância 30k": {
-      "BT NS": {
-        "soma_s": 7841,
-        "soma_str": "02:10:41",
-        "atletas": [
-          "Omar Dantas",
-          "Daniel Azevedo",
-          "Neto Xavier"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "PULSE": {
-        "soma_s": 7846,
-        "soma_str": "02:10:46",
-        "atletas": [
-          "Elionai",
-          "Lucas Leonardo",
-          "Rafael Povoas"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "AABB": {
-        "soma_s": 8114,
-        "soma_str": "02:15:14",
-        "atletas": [
-          "Sivonaldo Tercio",
-          "Genival Ferreira",
-          "Renato Araújo"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "BT TIROL": {
-        "soma_s": 7956,
-        "soma_str": "02:12:36",
-        "atletas": [
-          "Sergio Torralba",
-          "Danilo Vale",
-          "Fabrício Barros"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "AABB": {
+      "ld30k": 15,
+      "ftp": 17,
+      "montanha": 25,
+      "total": 57
+    },
+    "BT TIROL": {
+      "ld30k": 17,
+      "ftp": 15,
+      "montanha": 17,
+      "total": 49
     }
   },
   "PRO FEMININO": {
-    "FTP Final": {
-      "BT TIROL": {
-        "soma_s": 44,
-        "soma_str": "00:00:44",
-        "atletas": [
-          "Heloisa Lopes",
-          "Vanessa Rodrigues",
-          "Andreia Araujo"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 40,
-        "soma_str": "00:00:40",
-        "atletas": [
-          "Allyne França",
-          "Camila Mota",
-          "Helena Jales"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT NS": {
-        "soma_s": 39,
-        "soma_str": "00:00:39",
-        "atletas": [
-          "Isadora Meybel",
-          "Beatriz Bezerra",
-          "Renata Ivia"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "PULSE": {
-        "soma_s": 49,
-        "soma_str": "00:00:49",
-        "atletas": [
-          "Ana Azevedo",
-          "Vivi",
-          "Fernanda Veloso"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "BT NS": {
+      "ld30k": 25,
+      "ftp": 25,
+      "montanha": 25,
+      "total": 75
     },
-    "Montanha": {
-      "BT NS": {
-        "soma_s": 5104,
-        "soma_str": "01:25:04",
-        "atletas": [
-          "Lívia Revoredo",
-          "Beatriz Bezerra",
-          "Isadora Meybel"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT TIROL": {
-        "soma_s": 5276,
-        "soma_str": "01:27:56",
-        "atletas": [
-          "Andreia Araujo",
-          "Vanessa Rodrigues",
-          "Maria Karolina"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 5161,
-        "soma_str": "01:26:01",
-        "atletas": [
-          "Giuly Giardinni",
-          "Camila Mota",
-          "Allyne França"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "PULSE": {
-        "soma_s": 5356,
-        "soma_str": "01:29:16",
-        "atletas": [
-          "Ana Azevedo",
-          "Fernanda Veloso",
-          "Vivi"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "AABB": {
+      "ld30k": 20,
+      "ftp": 20,
+      "montanha": 20,
+      "total": 60
     },
-    "Longa Distância 30k": {
-      "PULSE": {
-        "soma_s": 6800,
-        "soma_str": "01:53:20",
-        "atletas": [
-          "Ana Azevedo",
-          "Adriana Melo"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT NS": {
-        "soma_s": 9309,
-        "soma_str": "02:35:09",
-        "atletas": [
-          "Lívia Revoredo",
-          "Isadora Meybel",
-          "Beatriz Bezerra"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT TIROL": {
-        "soma_s": 9652,
-        "soma_str": "02:40:52",
-        "atletas": [
-          "Andreia Araujo",
-          "Heloisa Lopes",
-          "Maria Karolina"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "AABB": {
-        "soma_s": 9634,
-        "soma_str": "02:40:34",
-        "atletas": [
-          "Camila Mota",
-          "Allyne França",
-          "Giuly Giardinni"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "BT TIROL": {
+      "ld30k": 17,
+      "ftp": 17,
+      "montanha": 17,
+      "total": 51
+    },
+    "PULSE": {
+      "ld30k": 13,
+      "ftp": 15,
+      "montanha": 15,
+      "total": 43
     }
   },
   "PRO MASCULINO": {
-    "FTP Final": {
-      "AABB": {
-        "soma_s": 36,
-        "soma_str": "00:00:36",
-        "atletas": [
-          "Bruno Cabral",
-          "José Arimatéia",
-          "César Maia"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "PULSE": {
-        "soma_s": 39,
-        "soma_str": "00:00:39",
-        "atletas": [
-          "Arthur Dantas",
-          "Olisuel Pereira",
-          "Luerber Oscar"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "BT TIROL": {
-        "soma_s": 29,
-        "soma_str": "00:00:29",
-        "atletas": [
-          "Carlos Thompson",
-          "Elistenio Pai"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT NS": {
-        "soma_s": 48,
-        "soma_str": "00:00:48",
-        "atletas": [
-          "Washington Filho",
-          "Edu Silva",
-          "Dowglas"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "AABB": {
+      "ld30k": 25,
+      "ftp": 25,
+      "montanha": 25,
+      "total": 75
     },
-    "Montanha": {
-      "AABB": {
-        "soma_s": 4470,
-        "soma_str": "01:14:30",
-        "atletas": [
-          "Bruno Cabral",
-          "José Arimatéia",
-          "Haroldo Duarte"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT TIROL": {
-        "soma_s": 4861,
-        "soma_str": "01:21:01",
-        "atletas": [
-          "Carlos Thompson",
-          "Elistenio Pai",
-          "Igor Rosado"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "BT NS": {
-        "soma_s": 3057,
-        "soma_str": "00:50:57",
-        "atletas": [
-          "Washington Filho",
-          "Kleber Gentil"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "PULSE": {
-        "soma_s": 4505,
-        "soma_str": "01:15:05",
-        "atletas": [
-          "Arthur Dantas",
-          "Olisuel Pereira",
-          "Luerber Oscar"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "PULSE": {
+      "ld30k": 20,
+      "ftp": 20,
+      "montanha": 20,
+      "total": 60
     },
-    "Longa Distância 30k": {
-      "AABB": {
-        "soma_s": 8400,
-        "soma_str": "02:20:00",
-        "atletas": [
-          "César Maia",
-          "José Arimatéia",
-          "Haroldo Duarte"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT NS": {
-        "soma_s": 8752,
-        "soma_str": "02:25:52",
-        "atletas": [
-          "Edu Silva",
-          "Washington Filho",
-          "Kleber Gentil"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "PULSE": {
-        "soma_s": 8525,
-        "soma_str": "02:22:05",
-        "atletas": [
-          "Olisuel Pereira",
-          "Luerber Oscar",
-          "Luiz Marcelo"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      }
+    "BT NS": {
+      "ld30k": 17,
+      "ftp": 17,
+      "montanha": 17,
+      "total": 51
+    },
+    "BT TIROL": {
+      "ld30k": 0,
+      "ftp": 13,
+      "montanha": 15,
+      "total": 28
     }
   },
   "MASTER": {
-    "FTP Final": {
-      "BT TIROL": {
-        "soma_s": 63,
-        "soma_str": "00:01:03",
-        "atletas": [
-          "Ana P. Mendes",
-          "CLAUDIA REGINA",
-          "Orlando Cunha",
-          "Wilson Chacon"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "PULSE": {
-        "soma_s": 63,
-        "soma_str": "00:01:03",
-        "atletas": [
-          "LIEGE",
-          "Katia Cunha",
-          "Alberto",
-          "Maurício"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT NS": {
-        "soma_s": 63,
-        "soma_str": "00:01:03",
-        "atletas": [
-          "Raimundo Romão",
-          "Socorro Linhares",
-          "Rogério Dantas",
-          "GERUSIA"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "AABB": {
-        "soma_s": 64,
-        "soma_str": "00:01:04",
-        "atletas": [
-          "Chiyo da Silva",
-          "Armando Nóbrega",
-          "Onaldo Dantas",
-          "Fernanda Fernandes"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "BT TIROL": {
+      "ld30k": 20,
+      "ftp": 25,
+      "montanha": 20,
+      "total": 65
     },
-    "Montanha": {
-      "PULSE": {
-        "soma_s": 6477,
-        "soma_str": "01:47:57",
-        "atletas": [
-          "Daniel Freire",
-          "Alberto",
-          "Katia Cunha",
-          "Alê Agra"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT NS": {
-        "soma_s": 6617,
-        "soma_str": "01:50:17",
-        "atletas": [
-          "Arthur Martins",
-          "Rogério Dantas",
-          "Alzinalia Lopes",
-          "Socorro Linhares"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "BT TIROL": {
-        "soma_s": 6596,
-        "soma_str": "01:49:56",
-        "atletas": [
-          "Orlando Cunha",
-          "André Fernandes",
-          "Ana P. Mendes",
-          "Sanzia Melo"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "AABB": {
-        "soma_s": 6734,
-        "soma_str": "01:52:14",
-        "atletas": [
-          "César Britto",
-          "Onaldo Dantas",
-          "Fernanda Fernandes",
-          "Chiyo da Silva"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "BT NS": {
+      "ld30k": 25,
+      "ftp": 17,
+      "montanha": 17,
+      "total": 59
     },
-    "Longa Distância 30k": {
-      "BT NS": {
-        "soma_s": 11680,
-        "soma_str": "03:14:40",
-        "atletas": [
-          "Raimundo Romão",
-          "Arthur Martins",
-          "Socorro Linhares",
-          "GERUSIA"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "AABB": {
-        "soma_s": 12536,
-        "soma_str": "03:28:56",
-        "atletas": [
-          "César Britto",
-          "Armando Nóbrega",
-          "Sheila Sales",
-          "Chiyo da Silva"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "BT TIROL": {
-        "soma_s": 12137,
-        "soma_str": "03:22:17",
-        "atletas": [
-          "Orlando Cunha",
-          "Wilson Chacon",
-          "Ana P. Mendes",
-          "CLAUDIA REGINA"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "PULSE": {
-        "soma_s": 12339,
-        "soma_str": "03:25:39",
-        "atletas": [
-          "Alberto",
-          "LIEGE",
-          "Maurício",
-          "Katia Cunha"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "PULSE": {
+      "ld30k": 17,
+      "ftp": 13,
+      "montanha": 25,
+      "total": 55
+    },
+    "AABB": {
+      "ld30k": 15,
+      "ftp": 20,
+      "montanha": 15,
+      "total": 50
     }
   },
   "SUB-26": {
-    "FTP Final": {
-      "BT TIROL": {
-        "soma_s": 50,
-        "soma_str": "00:00:50",
-        "atletas": [
-          "Maria J nobrega",
-          "Duduzinho",
-          "Lucas Eurípides",
-          "Luna Melo"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "PULSE": {
-        "soma_s": 60,
-        "soma_str": "00:01:00",
-        "atletas": [
-          "Júlia Rocha",
-          "José Wilson",
-          "Victor Barbosa",
-          "Carol Negreiros"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT NS": {
-        "soma_s": 75,
-        "soma_str": "00:01:15",
-        "atletas": [
-          "Livia Darc",
-          "Matheus Alves",
-          "JESSICA",
-          "Artur Sena"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "AABB": {
-        "soma_s": 73,
-        "soma_str": "00:01:13",
-        "atletas": [
-          "João Menezes",
-          "Luciana Maria",
-          "Laura Negreiros",
-          "Luiz César"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "AABB": {
+      "ld30k": 25,
+      "ftp": 17,
+      "montanha": 25,
+      "total": 67
     },
-    "Montanha": {
-      "AABB": {
-        "soma_s": 6707,
-        "soma_str": "01:51:47",
-        "atletas": [
-          "João Menezes",
-          "Allan Oliveira",
-          "Luciana Maria",
-          "Laura Negreiros"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT TIROL": {
-        "soma_s": 7009,
-        "soma_str": "01:56:49",
-        "atletas": [
-          "Lucas Eurípides",
-          "Isabel Lucena",
-          "Elistenio Filho",
-          "Luna Melo"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      },
-      "PULSE": {
-        "soma_s": 6796,
-        "soma_str": "01:53:16",
-        "atletas": [
-          "Victor Barbosa",
-          "Francisco Vito",
-          "Júlia Rocha",
-          "Carol Negreiros"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "BT NS": {
-        "soma_s": 6799,
-        "soma_str": "01:53:19",
-        "atletas": [
-          "Joao Pedro",
-          "Artur Sena",
-          "Livia Darc",
-          "Samara Silva"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      }
+    "BT TIROL": {
+      "ld30k": 17,
+      "ftp": 25,
+      "montanha": 15,
+      "total": 57
     },
-    "Longa Distância 30k": {
-      "AABB": {
-        "soma_s": 12541,
-        "soma_str": "03:29:01",
-        "atletas": [
-          "João Menezes",
-          "Allan Oliveira",
-          "Laura Negreiros",
-          "Luciana Maria"
-        ],
-        "pontos": 25,
-        "posicao": 1
-      },
-      "BT TIROL": {
-        "soma_s": 12720,
-        "soma_str": "03:32:00",
-        "atletas": [
-          "Lucas Eurípides",
-          "Maria J nobrega",
-          "Isabel Lucena",
-          "Duduzinho"
-        ],
-        "pontos": 17,
-        "posicao": 3
-      },
-      "BT NS": {
-        "soma_s": 12578,
-        "soma_str": "03:29:38",
-        "atletas": [
-          "Joao Pedro",
-          "Livia Darc",
-          "Matheus Alves",
-          "Samara Silva"
-        ],
-        "pontos": 20,
-        "posicao": 2
-      },
-      "PULSE": {
-        "soma_s": 12980,
-        "soma_str": "03:36:20",
-        "atletas": [
-          "José Wilson",
-          "Victor Barbosa",
-          "Júlia Rocha",
-          "Carol Negreiros"
-        ],
-        "pontos": 15,
-        "posicao": 4
-      }
+    "PULSE": {
+      "ld30k": 15,
+      "ftp": 20,
+      "montanha": 20,
+      "total": 55
+    },
+    "BT NS": {
+      "ld30k": 20,
+      "ftp": 15,
+      "montanha": 17,
+      "total": 52
     }
   }
 };
 
-const PONTOS_EQUIPE_TOTAL = {
-  "BT NS": 378,
-  "BT TIROL": 315,
-  "AABB": 341,
-  "PULSE": 337
+const PONTOS_EQUIPE_GERAL = {
+  "BT NS": {
+    "ld30k": 137,
+    "ftp": 119,
+    "montanha": 124,
+    "total": 380
+  },
+  "AABB": {
+    "ld30k": 115,
+    "ftp": 119,
+    "montanha": 125,
+    "total": 359
+  },
+  "PULSE": {
+    "ld30k": 102,
+    "ftp": 108,
+    "montanha": 117,
+    "total": 327
+  },
+  "BT TIROL": {
+    "ld30k": 91,
+    "ftp": 112,
+    "montanha": 104,
+    "total": 307
+  }
 };
 
 const RANKING_GERAL_MASC = ["Omar Dantas", "Sergio Torralba", "Lucas Leonardo", "Neto Xavier", "Genival Ferreira", "Lucas Eurípides", "Olisuel Pereira", "José Arimatéia", "Washington Filho", "Orlando Cunha", "Fabrício Barros", "Victor Barbosa", "Alberto", "Luerber Oscar", "João Menezes"];

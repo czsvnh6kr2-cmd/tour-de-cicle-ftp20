@@ -267,58 +267,44 @@
   }
 
   // ── Ranking de EQUIPES por prova numa categoria ──────────────
-  function rankingEquipePorProva(cat, prova, sexo) {
-    // Calcula em tempo real para respeitar filtro de sexo
-    const campo_s = prova + '_s';
-    const rotulo  = rotuloGrupo(cat, sexo);
+  // ── Ranking de equipes por categoria e prova (fonte: PDF oficial) ──
+  const PROVA_KEY = {'ftp_final':'ftp','montanha':'montanha','ld30k':'ld30k'};
 
-    // Para categorias mistas com filtro de sexo, precisamos calcular na hora
-    // Para as demais, podemos usar PONTOS_EQUIPE_CAT se não há filtro de sexo
-    if (!sexo || !CAT_MISTA.includes(cat)) {
-      const dados = (PONTOS_EQUIPE_CAT[cat]||{})[PROVA_LABEL[prova]];
-      if (!dados) return 'Dados de equipe não disponíveis para '+rotulo+' / '+PROVA_LABEL[prova]+'.';
-      const rows = Object.entries(dados)
-        .filter(([,d]) => d.atletas && d.atletas.length)
-        .sort((a,b) => (a[1].soma_s||9e9) - (b[1].soma_s||9e9));
-      let h = '<strong>Ranking de equipes · '+PROVA_LABEL[prova]+' · '+rotulo+'</strong>:<br>';
-      h += tbl(rows.map(([ac,d]) => [pos(d.posicao), ac, d.soma_str||'—', d.atletas.join(', '), d.pontos||'—']),
-        ['Pos','Academia','Soma de tempo','Atletas','Pontos']);
-      return h;
-    }
-
-    // Categoria mista com sexo especificado: calcular na hora
-    const N = (cat==='MASTER'||cat==='SUB-26') ? 4 : 3;
-    const grupos = {};
-    filtrarAtletas(cat, sexo).forEach(a => {
-      if (a[campo_s] && a[campo_s] > 0) {
-        if (!grupos[a.academia]) grupos[a.academia] = [];
-        grupos[a.academia].push({nome: a.atleta, t: a[campo_s]});
-      }
-    });
-
-    const PONTOS = PONTOS_RANKING;
-    const linhas = Object.entries(grupos).map(([ac, lista]) => {
-      lista.sort((a,b)=>a.t-b.t);
-      const top  = lista.slice(0, N);
-      const soma = top.reduce((s,x)=>s+x.t, 0);
-      const h = Math.floor(soma/3600), m = Math.floor((soma%3600)/60), s = soma%60;
-      return { ac, soma, soma_str: `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`, atletas: top.map(x=>x.nome) };
-    }).sort((a,b)=>a.soma-b.soma);
-
-    linhas.forEach((l,i) => { l.pontos = PONTOS[i]||0; l.pos = i+1; });
-
-    let h = '<strong>Ranking de equipes · '+PROVA_LABEL[prova]+' · '+rotulo+'</strong>:<br>';
-    h += tbl(linhas.map(l => [pos(l.pos), l.ac, l.soma_str, l.atletas.join(', '), l.pontos]),
-      ['Pos','Academia','Soma de tempo','Atletas','Pontos']);
+  function rankingEquipePorProva(cat, prova) {
+    const catDados = PONTOS_EQUIPE_OFICIAL[cat];
+    if (!catDados) return 'Categoria não encontrada: '+cat;
+    const provaKey = PROVA_KEY[prova];
+    const LABEL = {'ftp':'FTP Final','montanha':'Montanha','ld30k':'Longa Distância 30k'};
+    const rows = Object.entries(catDados)
+      .map(([ac, d]) => ({ ac, pts: d[provaKey]||0, total: d.total||0 }))
+      .sort((a,b) => b.pts - a.pts);
+    rows.forEach((r,i) => r.pos = i+1);
+    let h = '<strong>Pontos de equipe · '+LABEL[provaKey]+' · '+cat+'</strong> <small>(fonte: tabela oficial)</small>:<br>';
+    h += tbl(rows.map(r => [pos(r.pos), r.ac, r.pts]), ['Pos','Academia','Pontos']);
     return h;
   }
 
-  // ── Ranking geral de equipes (total de pontos) ───────────────
+  function rankingEquipeCat(cat) {
+    const catDados = PONTOS_EQUIPE_OFICIAL[cat];
+    if (!catDados) return 'Categoria não encontrada: '+cat;
+    const rows = Object.entries(catDados)
+      .map(([ac, d]) => ({ ac, ld30k: d.ld30k||0, ftp: d.ftp||0, montanha: d.montanha||0, total: d.total||0 }))
+      .sort((a,b) => b.total - a.total);
+    rows.forEach((r,i) => r.pos = i+1);
+    let h = '<strong>Pontos de equipe · '+cat+'</strong> <small>(fonte: tabela oficial)</small>:<br>';
+    h += tbl(rows.map(r => [pos(r.pos), r.ac, r.ld30k, r.ftp, r.montanha, '<strong>'+r.total+'</strong>']),
+      ['Pos','Academia','30k','FTP','Montanha','Total']);
+    return h;
+  }
+
+  // ── Ranking geral de equipes (fonte: PDF oficial) ────────────
   function rankingEquipeTotal() {
-    const ord = Object.entries(PONTOS_EQUIPE_TOTAL).sort((a,b)=>b[1]-a[1]);
-    let h = '<strong>Ranking geral de equipes · soma de todas as provas e categorias</strong>:<br>';
-    h += tbl(ord.map(([ac,pts],i) => [pos(i+1), ac, pts]), ['Pos','Academia','Pontos']);
-    return h + AVISO;
+    const rows = Object.entries(PONTOS_EQUIPE_GERAL)
+      .sort((a,b) => b[1].total - a[1].total);
+    let h = '<strong>Ranking geral de equipes</strong> <small>(fonte: tabela oficial)</small>:<br>';
+    h += tbl(rows.map(([ac,d],i) => [pos(i+1), ac, d.ld30k, d.ftp, d.montanha, '<strong>'+d.total+'</strong>']),
+      ['Pos','Academia','30k','FTP','Montanha','Total']);
+    return h;
   }
 
   // ── Motor principal ──────────────────────────────────────────
@@ -357,14 +343,11 @@
     // Detecta: "academia Elite Masculino", "equipes Pro Feminino montanha", "ranking por academia Sub-26 masculino"
     const pedidoEquipe = /(academia|equipe|equipes|times?|por time|por equipe|por academia)/.test(qn);
     if (pedidoEquipe && cat && prova)
-      return rankingEquipePorProva(cat, prova, CAT_MISTA.includes(cat) ? sexo : null);
+      return rankingEquipePorProva(cat, prova);
 
-    // "ranking por academia Elite Masculino" sem prova → mostrar em todas as provas
-    if (pedidoEquipe && cat && !prova) {
-      return ['ftp_final','montanha','ld30k']
-        .map(p => rankingEquipePorProva(cat, p, CAT_MISTA.includes(cat) ? sexo : null))
-        .join('<br><br>');
-    }
+    // "ranking por academia Elite Masculino" sem prova → resumo consolidado da categoria
+    if (pedidoEquipe && cat && !prova)
+      return rankingEquipeCat(cat);
 
     // ── Ranking geral por tempo ───────────────────────────────
     if (/(ranking geral|classificacao geral|tempo total|geral por tempo|posicao geral|quem ganhou geral)/.test(qn)) {
@@ -422,7 +405,7 @@
       const lista = ATLETAS.filter(a=>a.academia===ac);
       const comp  = lista.filter(a=>a.completo).length;
       const pts   = lista.reduce((s,a)=>s+a.pontos_total,0);
-      const pteq  = PONTOS_EQUIPE_TOTAL[ac]||0;
+      const pteq  = (PONTOS_EQUIPE_GERAL[ac]||{}).total||0;
       return '<strong>'+ac+'</strong>: '+lista.length+' atletas, '+comp+' com 3 provas completas.<br>'
         +'<strong>Pontos individuais:</strong> '+pts+' &nbsp;|&nbsp; <strong>Pontos de equipe:</strong> '+pteq
         +'<br><br>Para ver todos, pergunte "Liste os atletas da '+ac+'".' + AVISO;
