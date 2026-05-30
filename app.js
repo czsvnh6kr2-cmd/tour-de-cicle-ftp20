@@ -232,7 +232,8 @@
   // ── Ranking individual por prova ─────────────────────────────
   function rankingProva(cat, prova, sexo) {
     const campo_s = prova+'_s';
-    let lista = filtrarAtletas(cat, sexo).filter(a => a[campo_s] && a[campo_s] > 0);
+    const temDado = prova === 'ftp_final' ? a => a[campo_s] !== null && a[campo_s] !== undefined : a => a[campo_s] && a[campo_s] > 0;
+    let lista = filtrarAtletas(cat, sexo).filter(temDado);
     lista.sort((a,b) => a[campo_s] - b[campo_s]);
     const rotulo = rotuloGrupo(cat, sexo);
     let h = '<strong>Ranking '+PROVA_LABEL[prova]+' · '+rotulo+'</strong> ('+lista.length+' atletas):<br>';
