@@ -93,8 +93,6 @@
       : '<span class="pos pos-0">'+p+'</span>';
   }
 
-  const AVISO = '<br><br><small>⚠️ <em>Pontos parciais — dados em atualização. Notou algo errado? <a href="https://wa.me/5531998207556" target="_blank" style="color:#25D366;font-weight:700">WhatsApp (31) 99820-7556</a></em></small>';
-
   // ── Detecção de entidades ────────────────────────────────────
   const CATMAP = {
     'elite feminino':'ELITE FEMININO','elite fem':'ELITE FEMININO','elite f ':'ELITE FEMININO',
@@ -200,7 +198,7 @@
     if (geralFem)  h += '<br>🌟 <strong>Ranking geral feminino:</strong> '+pos(geralFem.pos)+'º com '+geralFem.pts+' pts';
     if (geralMasc) h += '<br>🌟 <strong>Ranking geral masculino:</strong> '+pos(geralMasc.pos)+'º com '+geralMasc.pts+' pts';
 
-    return h + AVISO;
+    return h ;
   }
 
   // ── Rankings de pontos por categoria ────────────────────────
@@ -209,7 +207,7 @@
     if (!lista) return 'Categoria não encontrada: '+catK;
     let h = '<strong>Ranking de pontos · '+catK+'</strong> ('+lista.length+' atletas):<br>';
     h += tbl(lista.map(a=>[pos(a.pos),a.atleta,a.pts]),['Pos','Atleta','Pontos']);
-    return h + AVISO;
+    return h ;
   }
 
   // ── Rankings gerais por pontos ───────────────────────────────
@@ -218,7 +216,7 @@
     const label = sexo==='Feminino' ? 'Feminino' : 'Masculino';
     let h = '<strong>Ranking geral '+label+' por pontos</strong> (todas as categorias):<br>';
     h += tbl(lista.map(a=>[pos(a.pos),a.atleta,a.pts]),['Pos','Atleta','Pontos']);
-    return h + AVISO;
+    return h ;
   }
 
   // ── Rankings por tempo ───────────────────────────────────────
@@ -308,7 +306,7 @@
       +'"Dados do Omar Dantas" · "Simone Ribeiro" · "Resultados do Lucas Eurípides"<br><br>'
       +'<strong>🏫 Por academia</strong><br>'
       +'"Atletas da BT NS" · "Atletas da AABB" · "Atletas da PULSE" · "Atletas da BT TIROL"'
-      + AVISO;
+      ;
   }
 
   // ── Instrução / Ajuda ────────────────────────────────────────
